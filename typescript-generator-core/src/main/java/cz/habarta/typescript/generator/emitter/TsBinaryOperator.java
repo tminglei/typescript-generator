@@ -6,7 +6,10 @@ import cz.habarta.typescript.generator.Settings;
 
 public enum TsBinaryOperator implements Emittable {
     
-    BarBar("||");
+    BarBar("||"),
+    AndAnd("&&"),
+    TestTest("??")
+    ;
 
     private final String formatted;
 

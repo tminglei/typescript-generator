@@ -40,7 +40,7 @@ export class User {
         if (!data) {
             return data;
         }
-        const instance = target || new User(data);
+        const instance: any = target || new User(data);
         instance.name = data.name;
         instance.authentication = data.authentication;
         instance.childAccount = data.childAccount;
@@ -74,7 +74,7 @@ export class Address {
         if (!data) {
             return data;
         }
-        const instance = target || new Address(data);
+        const instance: any = target || new Address(data);
         instance.street = data.street;
         instance.city = data.city;
         return instance;
@@ -100,7 +100,7 @@ export class PagedList<T, A> {
         if (!data) {
             return data;
         }
-        const instance = target || new PagedList<T, A>(data);
+        const instance: any = target || new PagedList<T, A>(data);
         instance.page = data.page;
         instance.items = __getCopyArrayFn(constructorFnOfT)(data.items);
         instance.additionalInfo = constructorFnOfA(data.additionalInfo);
@@ -119,7 +119,7 @@ export class Order {
         if (!data) {
             return data;
         }
-        const instance = target || new Order(data);
+        const instance: any = target || new Order(data);
         instance.id = data.id;
         return instance;
     }
@@ -138,7 +138,7 @@ export class Shape {
         if (!data) {
             return data;
         }
-        const instance = target || new Shape(data);
+        const instance: any = target || new Shape(data);
         instance.kind = data.kind;
         instance.metadata = ShapeMetadata.fromData(data.metadata);
         return instance;
@@ -170,7 +170,7 @@ export class ShapeMetadata {
         if (!data) {
             return data;
         }
-        const instance = target || new ShapeMetadata(data);
+        const instance: any = target || new ShapeMetadata(data);
         instance.group = data.group;
         return instance;
     }
@@ -189,7 +189,7 @@ export class Square extends Shape {
         if (!data) {
             return data;
         }
-        const instance = target || new Square(data);
+        const instance: any = target || new Square(data);
         super.fromData(data, instance);
         instance.size = data.size;
         return instance;
@@ -211,7 +211,7 @@ export class Rectangle extends Shape {
         if (!data) {
             return data;
         }
-        const instance = target || new Rectangle(data);
+        const instance: any = target || new Rectangle(data);
         super.fromData(data, instance);
         instance.width = data.width;
         instance.height = data.height;
@@ -232,7 +232,7 @@ export class Circle extends Shape {
         if (!data) {
             return data;
         }
-        const instance = target || new Circle(data);
+        const instance: any = target || new Circle(data);
         super.fromData(data, instance);
         instance.radius = data.radius;
         return instance;

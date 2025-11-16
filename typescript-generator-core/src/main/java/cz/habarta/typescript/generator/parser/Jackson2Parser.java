@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -261,9 +262,16 @@ public class Jackson2Parser extends ModelParser {
         final Class<?> view = settings.jackson2Configuration != null ? settings.jackson2Configuration.view : null;
         final BeanHelpers beanHelpers = getBeanHelpers(sourceClass.type, view);
         if (beanHelpers != null) {
+            var ignoredProps = Arrays.stream(sourceClass.type.getDeclaredFields())
+                    .filter(d -> d.getAnnotation(JsonIgnore.class) != null)
+                    .map(Field::getName)
+                    .collect(Collectors.toList());
             for (final Pair<BeanProperty, PropertyAccess> pair : beanHelpers.getPropertiesAndAccess()) {
                 final BeanProperty beanProperty = pair.getValue1();
                 final PropertyAccess access = pair.getValue2();
+                if (ignoredProps.contains(beanProperty.getName())) {
+                    continue;
+                }
                 final Member member = beanProperty.getMember().getMember();
                 final PropertyMember propertyMember = wrapMember(settings.getTypeParser(), member, getCreatorIndex(beanProperty), beanProperty::getAnnotation, beanProperty.getName(), sourceClass.type);
                 if (propertyMember == null) {

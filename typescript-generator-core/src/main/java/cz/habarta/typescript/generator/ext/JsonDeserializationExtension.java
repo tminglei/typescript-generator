@@ -31,6 +31,7 @@ import cz.habarta.typescript.generator.emitter.TsParameterModel;
 import cz.habarta.typescript.generator.emitter.TsPrefixUnaryExpression;
 import cz.habarta.typescript.generator.emitter.TsPropertyDefinition;
 import cz.habarta.typescript.generator.emitter.TsPropertyModel;
+import cz.habarta.typescript.generator.emitter.TsQuoteExpression;
 import cz.habarta.typescript.generator.emitter.TsReturnStatement;
 import cz.habarta.typescript.generator.emitter.TsStatement;
 import cz.habarta.typescript.generator.emitter.TsStringLiteral;
@@ -132,7 +133,7 @@ public class JsonDeserializationExtension extends Extension {
         body.add(new TsVariableDeclarationStatement(
                 /*const*/ true,
                 "instance",
-                /*type*/ null,
+                /*type*/ TsType.Any,
                 new TsBinaryExpression(
                         new TsIdentifierReference("target"),
                         TsBinaryOperator.BarBar,
@@ -151,9 +152,17 @@ public class JsonDeserializationExtension extends Extension {
         for (TsPropertyModel property : bean.getProperties()) {
             final Map<String, TsType> inheritedProperties = ModelCompiler.getInheritedProperties(symbolTable, tsModel, Utils.listFromNullable(bean.getParent()));
             if (!inheritedProperties.containsKey(property.getName())) {
+                var origin = new TsMemberExpression(new TsIdentifierReference("data"), property.name);
+                var target = new TsMemberExpression(new TsIdentifierReference("instance"), property.name);
+                var propCopy = getPropertyCopy(symbolTable, tsModel, bean, property);
+                var assignExpr = propCopy instanceof TsCallExpression
+                        ? new TsBinaryExpression(new TsQuoteExpression(new TsBinaryExpression(origin, TsBinaryOperator.AndAnd, propCopy)),
+                            TsBinaryOperator.BarBar, target)
+                        : new TsQuoteExpression(new TsBinaryExpression(propCopy, TsBinaryOperator.TestTest, target))
+                    ;
                 body.add(new TsExpressionStatement(new TsAssignmentExpression(
-                        new TsMemberExpression(new TsIdentifierReference("instance"), property.name),
-                        getPropertyCopy(symbolTable, tsModel, bean, property)
+                        target,
+                        assignExpr
                 )));
             }
         }

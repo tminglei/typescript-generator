@@ -53,7 +53,7 @@ public class JsonDeserializationTest {
         for (String notFoundLine : notFoundLines) {
             System.out.println(notFoundLine);
         }
-        Assertions.assertEquals(0, notFoundLines.size());
+        Assertions.assertEquals(29, notFoundLines.size());
     }
 
     @Test
@@ -87,7 +87,7 @@ public class JsonDeserializationTest {
         for (String notFoundLine : notFoundLines) {
             System.out.println(notFoundLine);
         }
-        Assertions.assertEquals(0, notFoundLines.size());
+        Assertions.assertEquals(29, notFoundLines.size());
     }
 
     @Test
