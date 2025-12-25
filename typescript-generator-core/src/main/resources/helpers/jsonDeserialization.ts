@@ -1,3 +1,7 @@
+/**
+ * 数组/对象 的复制函数
+ */
+
 function __getCopyArrayFn<T>(itemCopyFn: (item: T) => T): (array: T[]) => T[] {
     return (array: T[]) => __copyArray(array, itemCopyFn);
 }
