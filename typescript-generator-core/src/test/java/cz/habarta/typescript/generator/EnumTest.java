@@ -25,7 +25,7 @@ public class EnumTest {
         final String expected = (
                 "\n" +
                 "interface AClass {\n" +
-                "    direction: Direction;\n" +
+                "  direction: Direction;\n" +
                 "}\n" +
                 "\n" +
                 "type Direction = 'North' | 'East' | 'South' | 'West';\n"
@@ -53,7 +53,7 @@ public class EnumTest {
         final String expected =
                 "\n" +
                 "interface AClass {\n" +
-                "    direction: 'North' | 'East' | 'South' | 'West';\n" +
+                "  direction: 'North' | 'East' | 'South' | 'West';\n" +
                 "}\n";
         assertEquals(expected, output);
     }
@@ -66,14 +66,14 @@ public class EnumTest {
         final String expected = (
                 "\n" +
                 "interface AClass {\n" +
-                "    direction: Direction;\n" +
+                "  direction: Direction;\n" +
                 "}\n" +
                 "\n" +
                 "declare const enum Direction {\n" +
-                "    North,\n" +
-                "    East,\n" +
-                "    South,\n" +
-                "    West,\n" +
+                "  North,\n" +
+                "  East,\n" +
+                "  South,\n" +
+                "  West,\n" +
                 "}\n"
                 ).replace("'", "\"");
         assertEquals(expected, output);
@@ -86,14 +86,14 @@ public class EnumTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(AClass.class));
         final String expected = (
                 "interface AClass {\n" +
-                "    direction: Direction;\n" +
+                "  direction: Direction;\n" +
                 "}\n" +
                 "\n" +
                 "declare const enum Direction {\n" +
-                "    North = 'North',\n" +
-                "    East = 'East',\n" +
-                "    South = 'South',\n" +
-                "    West = 'West',\n" +
+                "  North = 'North',\n" +
+                "  East = 'East',\n" +
+                "  South = 'South',\n" +
+                "  West = 'West',\n" +
                 "}"
                 ).replace("'", "\"");
         assertEquals(expected.trim(), output.trim());
@@ -110,14 +110,14 @@ public class EnumTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(DummyEnum.class, DummyClassEnum.class));
         final String expected = (
                 "\ndeclare const enum DummyClassEnum {\n" +
-                        "    ATYPE = 'ATYPE',\n" +
-                        "    BTYPE = 'BTYPE',\n" +
-                        "    CTYPE = 'CTYPE',\n" +
+                        "  ATYPE = 'ATYPE',\n" +
+                        "  BTYPE = 'BTYPE',\n" +
+                        "  CTYPE = 'CTYPE',\n" +
                         "}\n" +
                 "\ndeclare const enum DummyEnum {\n" +
-                        "    Red = 'Red',\n" +
-                        "    Green = 'Green',\n" +
-                        "    Blue = 'Blue',\n" +
+                        "  Red = 'Red',\n" +
+                        "  Green = 'Green',\n" +
+                        "  Blue = 'Blue',\n" +
                         "}\n"
                 ).replace("'", "\"");
         assertEquals(expected.trim(), output.trim());
@@ -135,19 +135,19 @@ public class EnumTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(DummyEnum.class, DummyClassEnum.class, DummyMixedCaseEnum.class));
         final String expected = (
                 "\ndeclare const enum DummyClassEnum {\n" +
-                        "    Atype = 'ATYPE',\n" +
-                        "    Btype = 'BTYPE',\n" +
-                        "    Ctype = 'CTYPE',\n" +
+                        "  Atype = 'ATYPE',\n" +
+                        "  Btype = 'BTYPE',\n" +
+                        "  Ctype = 'CTYPE',\n" +
                         "}\n" +
                         "\ndeclare const enum DummyEnum {\n" +
-                        "    Red = 'Red',\n" +
-                        "    Green = 'Green',\n" +
-                        "    Blue = 'Blue',\n" +
+                        "  Red = 'Red',\n" +
+                        "  Green = 'Green',\n" +
+                        "  Blue = 'Blue',\n" +
                         "}\n" +
                         "\ndeclare const enum DummyMixedCaseEnum {\n" +
-                        "    CamelCaseType = 'camelCaseType',\n" +
-                        "    PascalCaseType = 'PascalCaseType',\n" +
-                        "    UpperCaseType = 'UPPER_CASE_TYPE',\n" +
+                        "  CamelCaseType = 'camelCaseType',\n" +
+                        "  PascalCaseType = 'PascalCaseType',\n" +
+                        "  UpperCaseType = 'UPPER_CASE_TYPE',\n" +
                         "}\n"
         ).replace("'", "\"");
         assertEquals(expected.trim(), output.trim());
@@ -235,8 +235,8 @@ public class EnumTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(StatusType.class));
         final String expected = "" +
                 "interface StatusType {\n" +
-                "    code: number;\n" +
-                "    label: string;\n" +
+                "  code: number;\n" +
+                "  label: string;\n" +
                 "}";
         assertEquals(expected.trim(), output.trim());
     }

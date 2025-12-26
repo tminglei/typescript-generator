@@ -86,8 +86,8 @@ public class MapEntryTest {
         Assertions.assertTrue(output.contains("entry2: Entry2<MyBean, string>"));
         Assertions.assertTrue(output.contains(""
                 + "interface Entry2<K, V> {\n"
-                + "    key: K;\n"
-                + "    value: V;\n"
+                + "  key: K;\n"
+                + "  value: V;\n"
                 + "}"));
         Assertions.assertTrue(output.contains("entry3: { [index: string]: string }"));
     }
@@ -132,8 +132,8 @@ public class MapEntryTest {
         Assertions.assertTrue(output.contains("entry2: { [index: string]: string }"));
         Assertions.assertTrue(output.contains(""
                 + "interface Entry1<K, V> {\n"
-                + "    key: K;\n"
-                + "    value: V;\n"
+                + "  key: K;\n"
+                + "  value: V;\n"
                 + "}"));
         Assertions.assertTrue(output.contains("entry3: { [index: string]: string }"));
     }

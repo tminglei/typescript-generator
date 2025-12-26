@@ -38,8 +38,8 @@ public class NumberEnumTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(SomeCode.class));
         Assertions.assertEquals(
                 "declare const enum SomeCode {\n" +
-                "    VALUE0 = 10,\n" +
-                "    VALUE1 = 11,\n" +
+                "  VALUE0 = 10,\n" +
+                "  VALUE1 = 11,\n" +
                 "}",
                 output.trim());
     }
@@ -52,8 +52,8 @@ public class NumberEnumTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(SomeCode.class));
         Assertions.assertEquals(
                 "enum SomeCode {\n" +
-                "    VALUE0 = 10,\n" +
-                "    VALUE1 = 11,\n" +
+                "  VALUE0 = 10,\n" +
+                "  VALUE1 = 11,\n" +
                 "}",
                 output.trim());
     }
@@ -66,8 +66,8 @@ public class NumberEnumTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(SomeCode.class));
         Assertions.assertEquals(
                 "enum SomeCode {\n" +
-                "    VALUE0 = 10,\n" +
-                "    VALUE1 = 11,\n" +
+                "  VALUE0 = 10,\n" +
+                "  VALUE1 = 11,\n" +
                 "}",
                 output.trim());
     }

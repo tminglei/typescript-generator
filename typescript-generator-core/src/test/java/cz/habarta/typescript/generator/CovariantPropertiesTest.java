@@ -15,13 +15,13 @@ public class CovariantPropertiesTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(Dog.class));
         final String expected =
                 "interface Animal {\n" +
-                "    allFood: Food[];\n" +
-                "    todaysFood: Food;\n" +
+                "  allFood: Food[];\n" +
+                "  todaysFood: Food;\n" +
                 "}\n" +
                 "\n" +
                 "interface Dog extends Animal {\n" +
-                "    allFood: DogFood[];\n" +
-                "    todaysFood: DogFood;\n" +
+                "  allFood: DogFood[];\n" +
+                "  todaysFood: DogFood;\n" +
                 "}\n" +
                 "\n" +
                 "interface DogFood extends Food {\n" +

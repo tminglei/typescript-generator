@@ -36,7 +36,7 @@ public class TypeGuardsForJackson2PolymorphismExtensionTest {
         Assertions.assertEquals(8, lines.size());
         Assertions.assertEquals("", lines.get(0));
         Assertions.assertEquals("function isCartesianPoint(point: Point): point is CartesianPoint {", lines.get(1));
-        Assertions.assertEquals("    return point.type === \"cartesian\";", lines.get(2));
+        Assertions.assertEquals("  return point.type === \"cartesian\";", lines.get(2));
         Assertions.assertEquals("}", lines.get(3));
     }
 

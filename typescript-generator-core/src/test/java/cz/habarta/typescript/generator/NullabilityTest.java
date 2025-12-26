@@ -20,19 +20,19 @@ public class NullabilityTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(A.class));
         final String expected = "" +
                 "interface A<T> {\n" +
-                "    data?: T;\n" +
-                "    isNonNullableFlag: boolean;\n" +
-                "    isNullableFlag?: boolean;\n" +
-                "    nonNullableBoolean: boolean;\n" +
-                "    nonNullableString: string;\n" +
-                "    nullableArray?: (string | undefined)[];\n" +
-                "    nullableBoolean?: boolean;\n" +
-                "    nullableGenericArray?: (T | undefined)[];\n" +
-                "    nullableGenericType?: T;\n" +
-                "    nullableList?: (string | undefined)[];\n" +
-                "    nullableString?: string;\n" +
-                "    test: string;\n" +
-                "    testNullable?: string;\n" +
+                "  data?: T;\n" +
+                "  isNonNullableFlag: boolean;\n" +
+                "  isNullableFlag?: boolean;\n" +
+                "  nonNullableBoolean: boolean;\n" +
+                "  nonNullableString: string;\n" +
+                "  nullableArray?: (string | undefined)[];\n" +
+                "  nullableBoolean?: boolean;\n" +
+                "  nullableGenericArray?: (T | undefined)[];\n" +
+                "  nullableGenericType?: T;\n" +
+                "  nullableList?: (string | undefined)[];\n" +
+                "  nullableString?: string;\n" +
+                "  test: string;\n" +
+                "  testNullable?: string;\n" +
                 "}";
         Assertions.assertEquals(expected.trim(), output.trim());
     }

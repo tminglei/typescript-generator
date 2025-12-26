@@ -27,9 +27,9 @@ public class GenericsTest {
         final String nl = settings.newline;
         final String expected =
                 "export interface IA<U, V> {" + nl +
-                "    x: IA<string, string>;" + nl +
-                "    y: IA<IA<string, IB>, string[]>;" + nl +
-                "    z: IA<{ [index: string]: V }, number[]>;" + nl +
+                "  x: IA<string, string>;" + nl +
+                "  y: IA<IA<string, IB>, string[]>;" + nl +
+                "  z: IA<{ [index: string]: V }, number[]>;" + nl +
                 "}" + nl +
                 "" + nl +
                 "export interface IB {" + nl +
@@ -52,7 +52,7 @@ public class GenericsTest {
         final String nl = settings.newline;
         final String expected =
                 "export interface IC {" + nl +
-                "    x: string[];" + nl +
+                "  x: string[];" + nl +
                 "}";
         assertEquals(expected, actual);
     }
@@ -69,11 +69,11 @@ public class GenericsTest {
         final String nl = settings.newline;
         final String expected =
                 "export interface D<T> {" + nl +
-                "    x: T;" + nl +
+                "  x: T;" + nl +
                 "}" + nl +
                 "" + nl +
                 "export interface E extends D<F> {" + nl +
-                "    x: F;" + nl +
+                "  x: F;" + nl +
                 "}" + nl +
                 "" + nl +
                 "export interface F {" + nl +
@@ -94,13 +94,13 @@ public class GenericsTest {
         final String nl = settings.newline;
         final String expected =
                 "export interface IA extends IB<string> {" + nl +
-                "    type: string;" + nl +
-                "    x: string;" + nl +
+                "  type: string;" + nl +
+                "  x: string;" + nl +
                 "}" + nl +
                 "" + nl +
                 "export interface IB<T> {" + nl +
-                "    type: string;" + nl +
-                "    x: T;" + nl +
+                "  type: string;" + nl +
+                "  x: T;" + nl +
                 "}";
 
         assertEquals(expected, actual);
@@ -112,15 +112,15 @@ public class GenericsTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(Table.class, Page1.class, Page2.class));
         final String expected =
                 "interface Table<T> {\n" +
-                "    rows: T[];\n" +
+                "  rows: T[];\n" +
                 "}\n" +
                 "\n" +
                 "interface Page1 {\n" +
-                "    stringTable: Table<string>;\n" +
+                "  stringTable: Table<string>;\n" +
                 "}\n" +
                 "\n" +
                 "interface Page2 {\n" +
-                "    someTable: Table<any>;\n" +
+                "  someTable: Table<any>;\n" +
                 "}";
         assertEquals(expected, output.trim());
     }
@@ -131,7 +131,7 @@ public class GenericsTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(TableGA.class));
         final String expected =
                 "interface TableGA<T> {\n" +
-                "    rows: T[];\n" +
+                "  rows: T[];\n" +
                 "}";
         assertEquals(expected, output.trim());
     }
@@ -142,7 +142,7 @@ public class GenericsTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(ExecutionResult.class));
         final String expected =
                 "interface ExecutionResult {\n" +
-                "    data: number;\n" +
+                "  data: number;\n" +
                 "}";
         assertEquals(expected, output.trim());
     }
@@ -208,8 +208,8 @@ public class GenericsTest {
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(Entity1View.class));
         Assertions.assertTrue(output.contains(""
                 + "export class Entity1View implements Entity1IdView {\n"
-                + "    id: MyId;\n"
-                + "    name: string;\n"
+                + "  id: MyId;\n"
+                + "  name: string;\n"
                 + "}"));
         Assertions.assertTrue(output.contains("export class MyId"));
     }

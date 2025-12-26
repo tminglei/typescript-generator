@@ -23,64 +23,64 @@ class KotlinTest {
         testOutput(A::class.java,
                 """
                 class Abstract<T> {
-                    dataFromAbstract?: T;
-                    nonNullableBooleanFromAbstract: boolean;
-                    nonNullableFlagFromAbstract: boolean;
-                    nonNullableStringFromAbstract: string;
-                    nullableArrayFromAbstract?: (string | undefined)[];
-                    nullableBooleanFromAbstract?: boolean;
-                    nullableFlagFromAbstract?: boolean;
-                    nullableGenericArrayFromAbstract?: (T | undefined)[];
-                    nullableGenericTypeFromAbstract?: T;
-                    nullableListFromAbstract?: (string | undefined)[];
-                    nullableStringFromAbstract?: string;
-                    testFromAbstract: string;
-                    testNullableFromAbstract?: string;
+                  dataFromAbstract?: T;
+                  nonNullableBooleanFromAbstract: boolean;
+                  nonNullableFlagFromAbstract: boolean;
+                  nonNullableStringFromAbstract: string;
+                  nullableArrayFromAbstract?: (string | undefined)[];
+                  nullableBooleanFromAbstract?: boolean;
+                  nullableFlagFromAbstract?: boolean;
+                  nullableGenericArrayFromAbstract?: (T | undefined)[];
+                  nullableGenericTypeFromAbstract?: T;
+                  nullableListFromAbstract?: (string | undefined)[];
+                  nullableStringFromAbstract?: string;
+                  testFromAbstract: string;
+                  testNullableFromAbstract?: string;
                 }
                 
                 class A<T> extends Abstract<T> implements Interface<T> {
-                    data?: T;
-                    dataFromInterface?: T;
-                    nonNullableBoolean: boolean;
-                    nonNullableBooleanFromInterface: boolean;
-                    nonNullableFlag: boolean;
-                    nonNullableFlagFromInterface: boolean;
-                    nonNullableString: string;
-                    nonNullableStringFromInterface: string;
-                    nullableArray?: (string | undefined)[];
-                    nullableArrayFromInterface?: (string | undefined)[];
-                    nullableBoolean?: boolean;
-                    nullableBooleanFromInterface?: boolean;
-                    nullableFlag?: boolean;
-                    nullableFlagFromInterface?: boolean;
-                    nullableGenericArray?: (T | undefined)[];
-                    nullableGenericArrayFromInterface?: (T | undefined)[];
-                    nullableGenericType?: T;
-                    nullableGenericTypeFromInterface?: T;
-                    nullableList?: (string | undefined)[];
-                    nullableListFromInterface?: (string | undefined)[];
-                    nullableString?: string;
-                    nullableStringFromInterface?: string;
-                    test: string;
-                    testFromInterface: string;
-                    testNullable?: string;
-                    testNullableFromInterface?: string;
+                  data?: T;
+                  dataFromInterface?: T;
+                  nonNullableBoolean: boolean;
+                  nonNullableBooleanFromInterface: boolean;
+                  nonNullableFlag: boolean;
+                  nonNullableFlagFromInterface: boolean;
+                  nonNullableString: string;
+                  nonNullableStringFromInterface: string;
+                  nullableArray?: (string | undefined)[];
+                  nullableArrayFromInterface?: (string | undefined)[];
+                  nullableBoolean?: boolean;
+                  nullableBooleanFromInterface?: boolean;
+                  nullableFlag?: boolean;
+                  nullableFlagFromInterface?: boolean;
+                  nullableGenericArray?: (T | undefined)[];
+                  nullableGenericArrayFromInterface?: (T | undefined)[];
+                  nullableGenericType?: T;
+                  nullableGenericTypeFromInterface?: T;
+                  nullableList?: (string | undefined)[];
+                  nullableListFromInterface?: (string | undefined)[];
+                  nullableString?: string;
+                  nullableStringFromInterface?: string;
+                  test: string;
+                  testFromInterface: string;
+                  testNullable?: string;
+                  testNullableFromInterface?: string;
                 }
                 
                 interface Interface<T> {
-                    dataFromInterface?: T;
-                    nonNullableBooleanFromInterface: boolean;
-                    nonNullableFlagFromInterface: boolean;
-                    nonNullableStringFromInterface: string;
-                    nullableArrayFromInterface?: (string | undefined)[];
-                    nullableBooleanFromInterface?: boolean;
-                    nullableFlagFromInterface?: boolean;
-                    nullableGenericArrayFromInterface?: (T | undefined)[];
-                    nullableGenericTypeFromInterface?: T;
-                    nullableListFromInterface?: (string | undefined)[];
-                    nullableStringFromInterface?: string;
-                    testFromInterface: string;
-                    testNullableFromInterface?: string;
+                  dataFromInterface?: T;
+                  nonNullableBooleanFromInterface: boolean;
+                  nonNullableFlagFromInterface: boolean;
+                  nonNullableStringFromInterface: string;
+                  nullableArrayFromInterface?: (string | undefined)[];
+                  nullableBooleanFromInterface?: boolean;
+                  nullableFlagFromInterface?: boolean;
+                  nullableGenericArrayFromInterface?: (T | undefined)[];
+                  nullableGenericTypeFromInterface?: T;
+                  nullableListFromInterface?: (string | undefined)[];
+                  nullableStringFromInterface?: string;
+                  testFromInterface: string;
+                  testNullableFromInterface?: string;
                 }""".trimIndent()
         )
     }

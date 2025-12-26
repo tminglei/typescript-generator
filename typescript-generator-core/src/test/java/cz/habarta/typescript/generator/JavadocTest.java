@@ -68,10 +68,10 @@ public class JavadocTest {
                     + " * @deprecated\n"
                     + " */\n"
                     + "interface DeprecatedClassWithoutJavadoc {\n"
-                    + "    /**\n"
-                    + "     * @deprecated\n"
-                    + "     */\n"
-                    + "    deprecatedField: string;\n"
+                    + "  /**\n"
+                    + "   * @deprecated\n"
+                    + "   */\n"
+                    + "  deprecatedField: string;\n"
                     + "}";
             Assertions.assertEquals(expected.trim(), generated.trim());
         }

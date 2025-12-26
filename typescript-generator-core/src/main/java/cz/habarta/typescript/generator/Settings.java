@@ -48,7 +48,7 @@ import java.util.stream.Stream;
 public class Settings {
     public String newline = String.format("%n");
     public String quotes = "\"";
-    public String indentString = "    ";
+    public String indentString = "  ";
     public TypeScriptFileType outputFileType = TypeScriptFileType.declarationFile;
     public TypeScriptOutputKind outputKind = null;
     public String module = null;
@@ -212,7 +212,7 @@ public class Settings {
     }
 
     public void setIndentString(String indentString) {
-        this.indentString = indentString != null ? indentString : "    ";
+        this.indentString = indentString != null ? indentString : "  ";
     }
 
     public void setJackson2Configuration(ClassLoader classLoader, Jackson2Configuration configuration) {

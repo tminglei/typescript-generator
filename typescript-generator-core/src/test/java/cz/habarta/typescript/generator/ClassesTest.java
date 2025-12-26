@@ -22,7 +22,7 @@ public class ClassesTest {
     public void testClass() {
         testOutput(A.class,
                 "class A {\n" +
-                "    a: string;\n" +
+                "  a: string;\n" +
                 "}"
         );
     }
@@ -32,11 +32,11 @@ public class ClassesTest {
         // A and B order is important
         testOutput(B.class,
                 "class A {\n" +
-                "    a: string;\n" +
+                "  a: string;\n" +
                 "}\n" +
                 "\n" +
                 "class B extends A {\n" +
-                "    b: string;\n" +
+                "  b: string;\n" +
                 "}"
         );
     }
@@ -45,17 +45,17 @@ public class ClassesTest {
     public void testClassImplementsInterface() {
         testOutput(E.class,
                 "class E implements D {\n" +
-                "    c: string;\n" +
-                "    d: string;\n" +
-                "    e: string;\n" +
+                "  c: string;\n" +
+                "  d: string;\n" +
+                "  e: string;\n" +
                 "}\n" +
                 "\n" +
                 "interface D extends C {\n" +
-                "    d: string;\n" +
+                "  d: string;\n" +
                 "}\n" +
                 "\n" +
                 "interface C {\n" +
-                "    c: string;\n" +
+                "  c: string;\n" +
                 "}"
         );
     }
@@ -65,26 +65,26 @@ public class ClassesTest {
         // Q3 and Q5 order is important
         testOutput(Q5.class,
                 "class Q3 implements Q2 {\n" +
-                "    q1: string;\n" +
-                "    q2: string;\n" +
-                "    q3: string;\n" +
+                "  q1: string;\n" +
+                "  q2: string;\n" +
+                "  q3: string;\n" +
                 "}\n" +
                 "\n" +
                 "class Q5 extends Q3 implements Q2, Q4 {\n" +
-                "    q4: string;\n" +
-                "    q5: string;\n" +
+                "  q4: string;\n" +
+                "  q5: string;\n" +
                 "}\n" +
                 "\n" +
                 "interface Q2 extends Q1 {\n" +
-                "    q2: string;\n" +
+                "  q2: string;\n" +
                 "}\n" +
                 "\n" +
                 "interface Q4 {\n" +
-                "    q4: string;\n" +
+                "  q4: string;\n" +
                 "}\n" +
                 "\n" +
                 "interface Q1 {\n" +
-                "    q1: string;\n" +
+                "  q1: string;\n" +
                 "}"
         );
     }
@@ -150,15 +150,15 @@ public class ClassesTest {
                 ),
                 ""
                 + "class Bc {\n"
-                + "    x: string;\n"
+                + "  x: string;\n"
                 + "}\n"
                 + "\n"
                 + "interface Bi {\n"
-                + "    y: string;\n"
+                + "  y: string;\n"
                 + "}\n"
                 + "\n"
                 + "class Derived1 extends Bc implements Bi {\n"
-                + "    y: string;\n"
+                + "  y: string;\n"
                 + "}\n"
                 + "\n"
                 + "class Derived2 extends Derived1 {\n"
@@ -175,16 +175,16 @@ public class ClassesTest {
                 ),
                 ""
                 + "interface Bc {\n"
-                + "    x: string;\n"
+                + "  x: string;\n"
                 + "}\n"
                 + "\n"
                 + "interface Bi {\n"
-                + "    y: string;\n"
+                + "  y: string;\n"
                 + "}\n"
                 + "\n"
                 + "class Derived1 implements Bc, Bi {\n"
-                + "    x: string;\n"
-                + "    y: string;\n"
+                + "  x: string;\n"
+                + "  y: string;\n"
                 + "}\n"
                 + "\n"
                 + "class Derived2 extends Derived1 {\n"
@@ -201,19 +201,19 @@ public class ClassesTest {
                 ),
                 ""
                 + "class Bc {\n"
-                + "    x: string;\n"
+                + "  x: string;\n"
                 + "}\n"
                 + "\n"
                 + "interface Bi {\n"
-                + "    y: string;\n"
+                + "  y: string;\n"
                 + "}\n"
                 + "\n"
                 + "interface Derived1 extends Bc, Bi {\n"
                 + "}\n"
                 + "\n"
                 + "class Derived2 implements Derived1 {\n"
-                + "    x: string;\n"
-                + "    y: string;\n"
+                + "  x: string;\n"
+                + "  y: string;\n"
                 + "}"
         );
     }
@@ -227,15 +227,15 @@ public class ClassesTest {
                 ),
                 ""
                 + "class Bc {\n"
-                + "    x: string;\n"
+                + "  x: string;\n"
                 + "}\n"
                 + "\n"
                 + "interface Bi {\n"
-                + "    y: string;\n"
+                + "  y: string;\n"
                 + "}\n"
                 + "\n"
                 + "class Derived1 extends Bc implements Bi {\n"
-                + "    y: string;\n"
+                + "  y: string;\n"
                 + "}\n"
                 + "\n"
                 + "interface Derived2 extends Derived1 {\n"
@@ -287,8 +287,8 @@ public class ClassesTest {
         settings.sortDeclarations = true;
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(FooBar.class));
         String sortedPropertyAssignments = "" +
-                "        this.bar = data.bar;" + settings.newline +
-                "        this.foo = data.foo;";
+                "    this.bar = data.bar;" + settings.newline +
+                "    this.foo = data.foo;";
         Assertions.assertTrue(output.contains(sortedPropertyAssignments));
     }
 
@@ -302,8 +302,8 @@ public class ClassesTest {
         settings.sortDeclarations = false;
         final String output = new TypeScriptGenerator(settings).generateTypeScript(Input.from(FooBar.class));
         String unsortedPropertyAssignments = "" +
-                "        this.foo = data.foo;" + settings.newline +
-                "        this.bar = data.bar;";
+                "    this.foo = data.foo;" + settings.newline +
+                "    this.bar = data.bar;";
         Assertions.assertTrue(output.contains(unsortedPropertyAssignments));
     }
 

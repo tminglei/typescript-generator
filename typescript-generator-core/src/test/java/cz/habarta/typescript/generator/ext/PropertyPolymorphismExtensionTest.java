@@ -52,7 +52,7 @@ public class PropertyPolymorphismExtensionTest {
 
         final String output = new TypeScriptGenerator(settings)
                 .generateTypeScript(Input.from(TestA.class, TestBSub1.class, TestBSub2.class));
-        assertTrue(output.contains("interface TestA {\n" + "    b: TestBRef;\n" + "}"), output);
+        assertTrue(output.contains("interface TestA {\n" + "  b: TestBRef;\n" + "}"), output);
         assertTrue(output.contains("interface TestBRef {"), output);
         assertTrue(output.contains("testBSub2: TestBSub2;"), output);
     }
