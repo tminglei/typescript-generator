@@ -33,7 +33,6 @@ import cz.habarta.typescript.generator.emitter.TsMethodModel;
 import cz.habarta.typescript.generator.emitter.TsModel;
 import cz.habarta.typescript.generator.emitter.TsModifierFlags;
 import cz.habarta.typescript.generator.emitter.TsObjectLiteral;
-import cz.habarta.typescript.generator.emitter.TsObserveExpression;
 import cz.habarta.typescript.generator.emitter.TsParameterModel;
 import cz.habarta.typescript.generator.emitter.TsPropertyDefinition;
 import cz.habarta.typescript.generator.emitter.TsPropertyModel;
@@ -539,10 +538,6 @@ public class ModelCompiler {
                                 new TsIdentifierReference("data")
                         )
                 ));
-            }
-
-            if (settings.importDeclarations.stream().anyMatch(d -> d.contains("mobx"))) {
-                body.add(new TsExpressionStatement(new TsObserveExpression(bean.getProperties())));
             }
 
             for (TsPropertyModel property : bean.getProperties()) {
